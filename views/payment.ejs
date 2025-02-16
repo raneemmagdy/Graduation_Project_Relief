@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #6772E5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #5469d4;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            font-size: 14px;
+            color: #777;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Complete Your Payment</h2>
+        <p>Click the button below to proceed with payment.</p>
+        <button id="checkout-button" data-request-id="<%= requestId %>">Pay Now</button>
+        <p class="loading">Redirecting to Stripe...</p>
+    </div>
+
+    
+    <script>
+        document.getElementById('checkout-button').addEventListener('click', async () => {
+            const button = document.getElementById('checkout-button');
+            const loadingText = document.querySelector('.loading');
+            const requestId = button.getAttribute('data-request-id');
+    
+            loadingText.style.display = 'block';
+    
+            try {
+                const response = await fetch(`http://localhost:8000/api/V1/publicRequest/payment/${requestId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+    
+                const { sessionId } = await response.json();
+                console.log("Session ID:", sessionId);
+    
+                if (!sessionId) {
+                    throw new Error("Invalid session ID received");
+                }
+    
+                // Ensure Stripe is initialized before calling redirectToCheckout
+                const stripe = Stripe('pk_test_51PRXLGAXhonOZxN3OvikmVnUkBpzmwZe3MinjDiYHVJWgQ0xnu5OSzArk5EaF6PCzQaSzibr8QNPAfpiDzx76Um300tq446lSD');
+                if (!stripe) {
+                    throw new Error("Stripe failed to initialize");
+                }
+    
+                const { error } = await stripe.redirectToCheckout({ sessionId });
+    
+                if (error) {
+                    console.error('Error redirecting to Stripe Checkout:', error);
+                    alert('Payment error: ' + error.message);
+                }
+            } catch (err) {
+                console.error('Payment processing error:', err);
+                alert('Something went wrong. Please try again.');
+            } finally {
+                button.disabled = false;
+                loadingText.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

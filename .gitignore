@@ -1,0 +1,11 @@
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore environment variable files
+.env
+
+# Ignore requirements.txt specifically
+requirements.txt
+
+# Ignore the upload script
+uploadModel.py
