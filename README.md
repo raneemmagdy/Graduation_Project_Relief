@@ -8,13 +8,13 @@ Relief is a web application that connects patients with caregivers and facilitat
 
 
 ## ⚡ Features
-✅ User Authentication (JWT, bcrypt, email verification)
-✅ Role-Based Access (Patients, Caregivers)
-✅ Request System (Public & Specific requests)
-✅ Secure Payment Gateway (Stripe)
-✅ Email & SMS Notifications (Nodemailer, Infobip)
-✅ Rate Limiting & Security (Helmet, XSS Clean, CORS)
-✅ Database: MongoDB (ODM:Mongoose)
+- ✅ User Authentication (JWT, bcrypt, email verification)
+- ✅ Role-Based Access (Patients, Caregivers)
+- ✅ Request System (Public & Specific requests)
+- ✅ Secure Payment Gateway (Stripe)
+- ✅ Email & SMS Notifications (Nodemailer, Infobip)
+- ✅ Rate Limiting & Security (Helmet, XSS Clean, CORS)
+- ✅ Database: MongoDB (ODM:Mongoose)
 
 ## 🏗 Tech Stack
 
@@ -41,9 +41,9 @@ cd Graduation_Project_Relief
 # Install dependencies
 npm install
 
-# Create a .env file and add the required environment variables
+# Create the .env file and add the required environment variables
 
-# Run the development server
+# Run the local server
 npm run dev
 ```
 
