@@ -16,18 +16,20 @@ Relief is a web application that connects patients with caregivers and facilitat
 - ✅ Rate Limiting & Security (Helmet, XSS Clean, CORS)
 - ✅ Database: MongoDB (ODM:Mongoose)
 
-## 🏗 Tech Stack
 
-### Backend 🛠️
-- Node.js + Express.js
-- MongoDB & Mongoose
-- JWT Authentication
-- Stripe for Payments
-- Infobip for SMS Notifications
-- Nodemailer for Emails
+## 🛠️ Tech Stack
 
-### Frontend (For Future Implementation) 🎨
-- EJS for Server-Side Views
+### Backend
+- **Node.js** ⚙️ + **Express.js** 🌐
+- **MongoDB** & **Mongoose** 🧩
+- **JWT Authentication** 🔑
+- **Stripe** for Payments 💳
+- **Infobip** for SMS Notifications
+- **Nodemailer** for Emails 📧
+
+### Frontend (For Future Implementation)
+- **EJS** 🌟 for Server-Side Views
+
 
 ## 🚀 Installation & Setup
 
@@ -103,6 +105,7 @@ Click **"Pay Now"** to initiate the Stripe checkout.
 - 🔒 JWT Authentication for secure access.
 - ⚡ Rate Limiting (Max 5 requests per minute).
 - 🛡 Helmet & XSS-Clean for enhanced security.
+
 
 
 🚀 Built by the Relief Team 🚀
