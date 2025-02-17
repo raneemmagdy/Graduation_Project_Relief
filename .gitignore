@@ -9,3 +9,10 @@ requirements.txt
 
 # Ignore the upload script
 uploadModel.py
+
+# Ignore the analyzeBiography script
+analyzeBiography.py
+
+# Ignore the analyzeBiography script
+analyzeHealthRecord.py
+

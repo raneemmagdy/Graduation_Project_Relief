@@ -9,26 +9,20 @@ const sendNotification = require('../services/notificationSender');
 const { emailTemplate } = require('../utils/email_templete');
 const specificRequestModel = require('../models/specificRequestSchema');
 const publicRequestModel = require('../models/publicRequestSchema');
+const { default: axios } = require('axios');
 let customAlphabet;
 (async () => {
   const nanoid = await import('nanoid');
   customAlphabet = nanoid.customAlphabet;
 })();
-
-const extractBiography = (text) => {
-    return new Promise((resolve, reject) => {
-        exec(`python analyzeBiography.py "${text}"`, (error, stdout, stderr) => {
-            if (error) {
-                return reject(error);
-            }
-            try {
-                const result = JSON.parse(stdout);
-                resolve(result);
-            } catch (parseError) {
-                reject(parseError);
-            }
-        });
-    });
+const extractBiography = async(text) => {
+   try {
+        const response = await axios.post('https://RaneemElmahdi-relief-model-api.hf.space/biography/predict', { text });
+        return response.data;
+    } catch (error) {
+        console.error('Error calling NLP API:', error);
+        throw error;
+    }
 };
 // API endpoint for SignUP
 const signUp = async function (req, res) {

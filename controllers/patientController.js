@@ -2,34 +2,27 @@ const bcrypt = require('bcrypt')
 const caregiverModel = require('../models/caregiverSchema');
 const cloudinary = require("../services/cloudinaryConfig")
 const jwt=require('jsonwebtoken');
-const { exec } = require('child_process'); 
 const patientValidation = require('../validation/patientValidation');
 const patientModel = require('../models/PatientSchema');
 const sendNotification = require('../services/notificationSender');
 const { emailTemplate } = require('../utils/email_templete');
 const specificRequestModel = require('../models/specificRequestSchema');
 const publicRequestModel = require('../models/publicRequestSchema');
+const { default: axios } = require('axios');
 let customAlphabet;
 (async () => {
   const nanoid = await import('nanoid');
   customAlphabet = nanoid.customAlphabet;
 })();
-const extractHealthRecord = (text) => {
-    return new Promise((resolve, reject) => {
-        exec(`python analyzeHealthRecord.py "${text}"`, (error, stdout, stderr) => {
-            if (error) {
-                return reject(error);
-            }
-            try {
-                const result = JSON.parse(stdout);
-                resolve(result);
-            } catch (parseError) {
-                reject(parseError);
-            }
-        });
-    });
-};
-
+const extractHealthRecord = async (text) => {
+    try {
+        const response = await axios.post('https://RaneemElmahdi-relief-model-api.hf.space/healthRecord/predict', { text });
+        return response.data;
+    } catch (error) {
+        console.error('Error calling NLP API:', error);
+        throw error;
+    }
+}
 // API endpoint for SignUP
 const signUp = async function (req, res) {
     try {
