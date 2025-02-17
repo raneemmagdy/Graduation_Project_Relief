@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt=require('jsonwebtoken');
 const cloudinary = require("../services/cloudinaryConfig")
-const { exec } = require('child_process'); 
 const caregiverModel = require('../models/caregiverSchema');
 const patientModel = require('../models/PatientSchema');
 const caregiverValidation = require('../validation/caregiverValidation');
