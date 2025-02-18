@@ -1,11 +1,13 @@
 const express=require("express")
 const bodyParser = require("body-parser")
 const cors=require("cors")
+const path=require("path")
 const xss=require("xss-clean")
 const helmet=require("helmet")
 require("dotenv").config()
 const app = express();
 app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 const DB_connect=require('./Database/connectionDB')

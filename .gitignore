@@ -13,6 +13,6 @@ uploadModel.py
 # Ignore the analyzeBiography script
 analyzeBiography.py
 
-# Ignore the analyzeBiography script
+# Ignore the analyzeHealthRecord script
 analyzeHealthRecord.py
 
