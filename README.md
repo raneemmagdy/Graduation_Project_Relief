@@ -2,36 +2,36 @@
 
 Relief is a web application that connects patients with caregivers and facilitates public & specific assistance requests. It supports secure authentication, messaging, notifications, and seamless online payments via Stripe.
 
-📌 **Live Demo**: [Relief on Vercel](https://graduation-project-relief.vercel.app)  
-📌 **Postman Docs**: [API Documentation](https://documenter.getpostman.com/view/26311189/2sAYXEEdKw)  
-📌 **Hugging Face API**: [AI Model](https://RaneemElmahdi-relief-model-api.hf.space)
+ **Live Demo**: [Relief on Vercel](https://graduation-project-relief.vercel.app)  
+ **Postman Docs**: [API Documentation](https://documenter.getpostman.com/view/26311189/2sAYXEEdKw)  
+ **Hugging Face API**: [AI Model](https://RaneemElmahdi-relief-model-api.hf.space)
 
 
-## ⚡ Features
-- ✅ User Authentication (JWT, bcrypt, email verification)
-- ✅ Role-Based Access (Patients, Caregivers)
-- ✅ Request System (Public & Specific requests)
-- ✅ Secure Payment Gateway (Stripe)
-- ✅ Email & SMS Notifications (Nodemailer, Infobip)
-- ✅ Rate Limiting & Security (Helmet, XSS Clean, CORS)
-- ✅ Database: MongoDB (ODM:Mongoose)
+##  Features
+-  User Authentication (JWT, bcrypt, email verification)
+-  Role-Based Access (Patients, Caregivers)
+-  Request System (Public & Specific requests)
+-  Secure Payment Gateway (Stripe)
+-  Email & SMS Notifications (Nodemailer, Infobip)
+-  Rate Limiting & Security (Helmet, XSS Clean, CORS)
+-  Database: MongoDB (ODM:Mongoose)
 
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend
-- **Node.js** ⚙️ + **Express.js** 🌐
-- **MongoDB** & **Mongoose** 🧩
-- **JWT Authentication** 🔑
-- **Stripe** for Payments 💳
+- **Node.js**  + **Express.js** 
+- **MongoDB** & **Mongoose** 
+- **JWT Authentication** 
+- **Stripe** for Payments 
 - **Infobip** for SMS Notifications
-- **Nodemailer** for Emails 📧
+- **Nodemailer** for Emails 
 
 ### Frontend (For Future Implementation)
 - **EJS** 🌟 for Server-Side Views
 
 
-## 🚀 Installation & Setup
+##  Installation & Setup
 
 ```bash
 # Clone the repository
@@ -49,7 +49,7 @@ npm install
 npm run dev
 ```
 
-## 🌍 Environment Variables
+##  Environment Variables
 Ensure you set up your `.env` file with the following:
 
 ```ini
@@ -69,7 +69,7 @@ PREFIX_PATIENT=Patient
 PREFIX_CAREGIVER=Caregiver
 ```
 
-## 📤 API Endpoints
+##  API Endpoints
 
 ### Patient Or Caregiver Authentication
 | Method | Endpoint | Description |
@@ -87,7 +87,7 @@ PREFIX_CAREGIVER=Caregiver
 
 _For a full list of endpoints and usage examples, check out the [Postman Docs](https://documenter.getpostman.com/view/26311189/2sAYXEEdKw)._ 🚀
 
-## 💳 Payment Integration
+##  Payment Integration
 The Relief app allows Patients to make secure payments via Stripe.
 
 ### Navigate to the payment page:
@@ -97,15 +97,15 @@ http://localhost:8000/payment/:requestId
 Click **"Pay Now"** to initiate the Stripe checkout.
 - Upon success, Patients are redirected to `/success`, or `/cancel` if they abort.
 
-## 📧 Notifications
+##  Notifications
 - **Emails:** Sent via Nodemailer for registration, password reset.
 - **SMS:** Handled via Infobip for urgent notifications.
 
-## 🎯 Security & Performance
-- 🔒 JWT Authentication for secure access.
-- ⚡ Rate Limiting (Max 5 requests per minute).
-- 🛡 Helmet & XSS-Clean for enhanced security.
+##  Security & Performance
+-  JWT Authentication for secure access.
+-  Rate Limiting (Max 5 requests per minute).
+-  Helmet & XSS-Clean for enhanced security.
 
 
 
-🚀 Built by the Relief Team 🚀
+ Built by the Relief Team 
