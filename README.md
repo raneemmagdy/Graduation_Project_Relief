@@ -85,7 +85,7 @@ PREFIX_CAREGIVER=Caregiver
 | GET | `/api/V1/publicRequest/approve/:requestId` | approve a public requests |
 | POST | `/api/V1/publicRequest/rate/:requestId` | rate a public requests |
 
-_For a full list of endpoints and usage examples, check out the [Postman Docs](https://documenter.getpostman.com/view/26311189/2sAYXEEdKw)._ 🚀
+_For a full list of endpoints and usage examples, check out the [Postman Docs](https://documenter.getpostman.com/view/26311189/2sAYXEEdKw)._ 
 
 ##  Payment Integration
 The Relief app allows Patients to make secure payments via Stripe.
